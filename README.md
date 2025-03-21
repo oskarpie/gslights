@@ -20,7 +20,7 @@ A lightweight macOS menu bar app that displays GitHub service status using traff
 
 1. Clone this repository:
    ```
-   git clone https://your-repo-url/GitHubLights.git
+   git clone https://github.com/oskarpie//GitHubLights.git
    cd GitHubLights
    ```
 
