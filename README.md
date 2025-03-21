@@ -1,64 +1,84 @@
-# GitHub Status Lights
+# GitHub Lights
 
-A macOS menu bar application that displays the current status of GitHub services as a 5x2 grid of colored dots.
-
-## Description
-
-GitHub Status Lights (`gslights`) is a lightweight utility that sits in your menu bar and provides a visual indicator of GitHub service health. The app fetches data from the GitHub Status API and displays up to 10 services as colored indicators:
-
-- 🟢 Green: Service is operational
-- 🟠 Yellow/Orange: Service is experiencing degraded performance or partial outage
-- 🔴 Red: Service is experiencing a major outage
-
-![lights](https://github.com/user-attachments/assets/ba32778c-200f-4c67-887e-d702ead0fbe1)
+A lightweight macOS menu bar app that displays GitHub service status using traffic light indicators.
 
 ## Features
 
-- Minimal menu bar interface showing GitHub services status at a glance
-- Automatic refresh every 5 minutes
-- Detailed status information available in dropdown menu
-- Option to manually refresh status
-- Direct link to open the GitHub Status page in your browser
+- Shows GitHub service status as a 5x2 grid of colored traffic light indicators in the menu bar
+- Green lights indicate operational services
+- Orange/amber lights indicate degraded performance
+- Red lights indicate outages
+- Automatically refreshes every 5 minutes
+- Click to view detailed status of each GitHub service
+- Open GitHub Status page directly from the menu
 
 ## Installation
 
-### Using Swift Package Manager
+### Method 1: Build from Source
 
-1. Clone the repository
-2. Build the app:
+1. Clone this repository:
+   ```
+   git clone https://your-repo-url/GitHubLights.git
+   cd GitHubLights
+   ```
+
+2. Build and create the app bundle:
+   ```
+   chmod +x build-app.sh
+   ./build-app.sh
+   ```
+
+3. Move the app to your Applications folder:
+   ```
+   mv "GitHub Lights.app" /Applications/
+   ```
+
+4. Launch the app from Applications
+
+### Method 2: Manual Installation
+
+1. Build the Swift package:
    ```
    swift build -c release
    ```
-3. Copy the built executable to your Applications folder:
+
+2. Create the app bundle manually:
    ```
-   cp .build/release/gslights /Applications/
+   mkdir -p "GitHub Lights.app/Contents/MacOS"
+   mkdir -p "GitHub Lights.app/Contents/Resources"
+   cp .build/release/GitHubLights "GitHub Lights.app/Contents/MacOS/"
+   cp Sources/GitHubLights/Info.plist "GitHub Lights.app/Contents/"
+   echo "APPLaplt" > "GitHub Lights.app/Contents/PkgInfo"
    ```
 
-### Running the App
-
-1. Launch the app by double-clicking it in your Applications folder
-2. The app will appear in your menu bar with a grid of colored dots
-3. Click on the dots to see detailed status of each GitHub service
-
-## System Requirements
-
-- macOS 11.0 (Big Sur) or later
-
-## Usage
-
-- Click on the menu bar icon to view detailed status of each GitHub service
-- Select "Refresh" to manually update the status
-- Select "Open GitHub Status" to view the official GitHub Status page
-- Select "Quit" to exit the application
+3. Move to Applications:
+   ```
+   mv "GitHub Lights.app" /Applications/
+   ```
 
 ## Development
 
-To build and run the project during development:
+- The app is built with Swift and uses the macOS AppKit framework
+- It fetches data from the GitHub Status API at https://www.githubstatus.com/api/v2/summary.json
+- To modify the app, edit the `main.swift` file in the `Sources/gslights` directory
+
+## Project Structure
 
 ```
-swift build
-swift run
+GitHubLights/
+├── Package.swift                  # Swift package configuration
+├── Sources/
+│   └── GitHubLights/
+│       ├── main.swift             # Main application code
+│       ├── Info.plist             # App bundle information
+│       └── AppIcon.svg            # App icon source
+├── build-app.sh                   # Build script
+└── README.md                      # This file
 ```
+
+## License
+
+This project is released under the MIT License.
 
 ## License
 
