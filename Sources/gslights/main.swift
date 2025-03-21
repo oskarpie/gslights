@@ -56,11 +56,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 return
             }
             
-            // Filter out components that aren't GitHub services
+            // Filter out components that aren't GitHub services and exclude position 3
             let filteredComponents = components.filter { component in
-                guard let name = component["name"] as? String else { return false }
-                // Exclude overall status component
-                return name != "GitHub Status"
+                guard let name = component["name"] as? String,
+                      let position = component["position"] as? Int else { return false }
+                // Exclude overall status component and position 3
+                return name != "GitHub Status" && position != 3
             }
             
             // Process first 10 services (for our 5x2 grid)
@@ -197,4 +198,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate
+
+// Set activation policy to accessory to make it a background app
+app.setActivationPolicy(.accessory)
+
 app.run()
