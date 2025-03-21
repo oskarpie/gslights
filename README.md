@@ -10,6 +10,8 @@ GitHub Status Lights (`gslights`) is a lightweight utility that sits in your men
 - 🟠 Yellow/Orange: Service is experiencing degraded performance or partial outage
 - 🔴 Red: Service is experiencing a major outage
 
+![lights](https://github.com/user-attachments/assets/ba32778c-200f-4c67-887e-d702ead0fbe1)
+
 ## Features
 
 - Minimal menu bar interface showing GitHub services status at a glance
