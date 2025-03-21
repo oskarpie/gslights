@@ -2,17 +2,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "gslights",
+    name: "GitHubLights",
     platforms: [
         .macOS(.v11)
     ],
     products: [
-        .executable(name: "gslights", targets: ["gslights"])
+        .executable(name: "GitHubLights", targets: ["GitHubLights"])
     ],
     dependencies: [],
     targets: [
         .executableTarget(
-            name: "gslights",
+            name: "GitHubLights",
             dependencies: []),
     ]
 )
