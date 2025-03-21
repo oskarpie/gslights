@@ -2,6 +2,9 @@
 
 A lightweight macOS menu bar app that displays GitHub service status using traffic light indicators.
 
+![lights](https://github.com/user-attachments/assets/bb1826be-6a65-4145-b88c-c5dbed057aea)
+
+
 ## Features
 
 - Shows GitHub service status as a 5x2 grid of colored traffic light indicators in the menu bar
