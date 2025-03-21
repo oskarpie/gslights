@@ -62,7 +62,7 @@ A lightweight macOS menu bar app that displays GitHub service status using traff
 
 - The app is built with Swift and uses the macOS AppKit framework
 - It fetches data from the GitHub Status API at https://www.githubstatus.com/api/v2/summary.json
-- To modify the app, edit the `main.swift` file in the `Sources/gslights` directory
+- To modify the app, edit the `main.swift` file in the `Sources/GitHubLights` directory
 
 ## Project Structure
 
